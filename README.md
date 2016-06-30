@@ -18,7 +18,7 @@ To compile and run test just run: *mvn test*
 
 This project is just an hello world process as follow
 
-![Hello World jbpm process](scr/main/resourcs/example/helloworld/HelloWorld.png)
+![Hello World jbpm process](scr/main/resources/example/helloworld/HelloWorld.png)
 
 
 # License
