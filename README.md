@@ -31,8 +31,21 @@ Activities:
 Activities:
 
  * start
- * script task: output "Hi, my process id is 1" on system out. Note that is possibile in script task get current process instance information
+ * script task: output "Hi, my process id is 1" on system out. *Note that is possibile in script task get current process instance information*
  * end
+
+### CreateInstances
+
+![Create Instances jbpm process](src/main/resources/example/createInstances/CreateInstances.png)
+
+Activities:
+
+ * start
+ * script task: print process Id information
+ * end
+ 
+Using jbpm api it's possible to create more instances for the same process definition. In this test, we will create 10 process instance from this process definition
+
 
 
 # License
