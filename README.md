@@ -46,6 +46,19 @@ Activities:
  
 Using jbpm api it's possible to create more instances for the same process definition. In this test, we will create 10 process instance from this process definition
 
+### SignalProcess
+
+![Signal Process jbpm process](src/main/resources/example/signalProcess/signalProcess.png)
+
+Activities:
+
+ * start: a normal start, activate process when process start
+ * throw event: use Signal to activate the second flow of activities
+ * start event 2: activated after signal is throwned 
+ * script task: print "Hello after catch" on system out
+ * end: even events
+ 
+Using signal it's possible to activate other flows and continue with execution
 
 
 # License
