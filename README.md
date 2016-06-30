@@ -16,9 +16,23 @@ To compile and run test just run: *mvn test*
 
 ### Hello World
 
-This project is just an hello world process as follow
-
 ![Hello World jbpm process](src/main/resources/example/helloworld/HelloWorld.png)
+
+Activities:
+
+ * start
+ * a script task that output "Hello World" on system out
+ * end
+
+### ProcessId 
+
+![Print process Id jbpm process](src/main/resources/example/processId/processId.png)
+
+Activities:
+
+ * start
+ * script task: output "Hi, my process id is 1" on system out. Note that is possibile in script task get current process instance information
+ * end
 
 
 # License
