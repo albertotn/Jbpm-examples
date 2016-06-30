@@ -56,7 +56,22 @@ Activities:
  * throw event: use Signal to activate the second flow of activities
  * start event 2: activated after signal is throwned 
  * script task: print "Hello after catch" on system out
- * end: even events
+ * ends: end events
+ 
+Using signal it's possible to activate other flows and continue with execution
+
+### DataMessage
+
+![Data Message jbpm process](src/main/resources/example/dataMessage/dataMessage.png)
+
+Activities:
+
+ * start: a normal start, activate process when process start
+ * script task 1: set a process variable with a value (processVar1="Jbpm")
+ * throw event: use Signal to activate the second flow of activities and passing processVar1
+ * start event 3: activated after signal is throwned, copy processVar1 to processVar2 
+ * script task 2: print to system out processVar2 value
+ * ends: end events
  
 Using signal it's possible to activate other flows and continue with execution
 

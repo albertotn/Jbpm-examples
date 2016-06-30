@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:java="http://www.java.com/javaTypes" xmlns:tns="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="Definition" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.2.3.Final-v20160226-1723-B97" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="ItemDefinition_9" isCollection="false" structureRef="String"/>
+  <bpmn2:signal id="Signal_1" name="Signal 1"/>
+  <bpmn2:message id="Message_1" itemRef="ItemDefinition_9" name="Message 1"/>
+  <bpmn2:process id="dataMessage.dataMessage" tns:packageName="dataMessage" name="dataMessage" isExecutable="true" processType="Private">
+    <bpmn2:property id="processVar1" itemSubjectRef="ItemDefinition_9" name="processVar1"/>
+    <bpmn2:property id="processVar2" itemSubjectRef="ItemDefinition_9" name="processVar2"/>
+    <bpmn2:startEvent id="StartEvent_1" name="StartProcess">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[StartProcess]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:endEvent id="EndEvent_1" name="End Event 1">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[End Event 1]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_9</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:scriptTask id="ScriptTask_1" name="Script Task 1" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Script Task 1]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_8</bpmn2:outgoing>
+      <bpmn2:script>kcontext.setVariable(&quot;processVar1&quot;, &quot;Jbpm&quot;);</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_3" tns:priority="1" sourceRef="StartEvent_1" targetRef="ScriptTask_1"/>
+    <bpmn2:scriptTask id="ScriptTask_2" name="Script Task 2" scriptFormat="http://www.java.com/java">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Script Task 2]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_10</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_6</bpmn2:outgoing>
+      <bpmn2:script>System.out.println(&quot;Variable value is &quot;+kcontext.getVariable(&quot;processVar2&quot;));</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:endEvent id="EndEvent_2" name="End Event 2">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[End Event 2]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_6</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_6" tns:priority="1" sourceRef="ScriptTask_2" targetRef="EndEvent_2"/>
+    <bpmn2:intermediateThrowEvent id="IntermediateThrowEvent_3" name="Intermediate Throw Event 3">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Intermediate Throw Event 3]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
+      <bpmn2:dataInput id="DataInput_2" name="Signal_1_Input"/>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_2">
+        <bpmn2:sourceRef>processVar1</bpmn2:sourceRef>
+        <bpmn2:targetRef>DataInput_2</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:inputSet id="InputSet_5" name="Input Set 5">
+        <bpmn2:dataInputRefs>DataInput_2</bpmn2:dataInputRefs>
+      </bpmn2:inputSet>
+      <bpmn2:signalEventDefinition id="SignalEventDefinition_1" signalRef="Signal_1"/>
+    </bpmn2:intermediateThrowEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_8" tns:priority="1" sourceRef="ScriptTask_1" targetRef="IntermediateThrowEvent_3"/>
+    <bpmn2:sequenceFlow id="SequenceFlow_9" tns:priority="1" sourceRef="IntermediateThrowEvent_3" targetRef="EndEvent_1"/>
+    <bpmn2:startEvent id="StartEvent_3" name="Start Event 3">
+      <bpmn2:extensionElements>
+        <tns:metaData name="elementname">
+          <tns:metaValue><![CDATA[Start Event 3]]></tns:metaValue>
+        </tns:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>SequenceFlow_10</bpmn2:outgoing>
+      <bpmn2:dataOutput id="DataOutput_3" name="Signal_2_Output"/>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_3">
+        <bpmn2:sourceRef>DataOutput_3</bpmn2:sourceRef>
+        <bpmn2:targetRef>processVar2</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:outputSet id="OutputSet_6" name="Output Set 6">
+        <bpmn2:dataOutputRefs>DataOutput_3</bpmn2:dataOutputRefs>
+      </bpmn2:outputSet>
+      <bpmn2:signalEventDefinition id="SignalEventDefinition_2" signalRef="Signal_1"/>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_10" tns:priority="1" sourceRef="StartEvent_3" targetRef="ScriptTask_2"/>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="dataMessage.dataMessage">
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="StartEvent_1">
+        <dc:Bounds height="0.0" width="0.0" x="45.0" y="45.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="15.0" width="71.0" x="28.0" y="81.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="EndEvent_1">
+        <dc:Bounds height="36.0" width="36.0" x="501.0" y="45.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="15.0" width="65.0" x="487.0" y="81.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_1" bpmnElement="ScriptTask_1">
+        <dc:Bounds height="50.0" width="110.0" x="154.0" y="38.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="15.0" width="71.0" x="173.0" y="55.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ScriptTask_2" bpmnElement="ScriptTask_2">
+        <dc:Bounds height="50.0" width="110.0" x="470.0" y="155.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="15.0" width="71.0" x="489.0" y="172.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_2" bpmnElement="EndEvent_2">
+        <dc:Bounds height="36.0" width="36.0" x="668.0" y="162.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="15.0" width="65.0" x="654.0" y="198.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_IntermediateThrowEvent_3" bpmnElement="IntermediateThrowEvent_3">
+        <dc:Bounds height="36.0" width="36.0" x="364.0" y="45.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="30.0" width="80.0" x="342.0" y="81.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_3" bpmnElement="StartEvent_3">
+        <dc:Bounds height="36.0" width="36.0" x="307.0" y="162.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="15.0" width="68.0" x="291.0" y="198.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_ScriptTask_1">
+        <di:waypoint xsi:type="dc:Point" x="81.0" y="63.0"/>
+        <di:waypoint xsi:type="dc:Point" x="117.0" y="63.0"/>
+        <di:waypoint xsi:type="dc:Point" x="154.0" y="63.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="SequenceFlow_6" sourceElement="BPMNShape_ScriptTask_2" targetElement="BPMNShape_EndEvent_2">
+        <di:waypoint xsi:type="dc:Point" x="580.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="623.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="623.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="668.0" y="180.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="SequenceFlow_8" sourceElement="BPMNShape_ScriptTask_1" targetElement="BPMNShape_IntermediateThrowEvent_3">
+        <di:waypoint xsi:type="dc:Point" x="264.0" y="63.0"/>
+        <di:waypoint xsi:type="dc:Point" x="314.0" y="63.0"/>
+        <di:waypoint xsi:type="dc:Point" x="364.0" y="63.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="SequenceFlow_9" sourceElement="BPMNShape_IntermediateThrowEvent_3" targetElement="BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="400.0" y="63.0"/>
+        <di:waypoint xsi:type="dc:Point" x="450.0" y="63.0"/>
+        <di:waypoint xsi:type="dc:Point" x="501.0" y="63.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="SequenceFlow_10" sourceElement="BPMNShape_StartEvent_3" targetElement="BPMNShape_ScriptTask_2">
+        <di:waypoint xsi:type="dc:Point" x="343.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="406.0" y="180.0"/>
+        <di:waypoint xsi:type="dc:Point" x="470.0" y="180.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship id="Relationship_1" type="Simulation">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario xsi:type="bpsim:Scenario" id="Scenario_1" name="Scenario 1">
+          <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters" baseTimeUnit="ms"/>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="StartEvent_1" id="ElementParameters_1">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:WaitTime xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:WaitTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="EndEvent_1" id="ElementParameters_5">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="1.0" min="0.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="ScriptTask_1" id="ElementParameters_8">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="1.0" min="0.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="SequenceFlow_3" id="ElementParameters_9">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="ScriptTask_2" id="ElementParameters_11">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="1.0" min="0.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="EndEvent_2" id="ElementParameters_13">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="1.0" min="0.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="SequenceFlow_6" id="ElementParameters_14">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="IntermediateThrowEvent_3" id="ElementParameters_18">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="1.0" min="0.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="SequenceFlow_8" id="ElementParameters_19">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="SequenceFlow_9" id="ElementParameters_20">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="StartEvent_3" id="ElementParameters_21">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:WaitTime xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:WaitTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="SequenceFlow_10" id="ElementParameters_22">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>Definition</bpmn2:source>
+    <bpmn2:target>Definition</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>

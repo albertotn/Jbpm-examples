@@ -14,8 +14,6 @@ public class SignalProcesesJUnitTest extends JbpmJUnitBaseTestCase {
 
 		ProcessInstance processInstance = ksession.startProcess("signalProcess.signalProcess");
 
-		// processInstance.signalEvent("Signal 1", "Signal 1");
-
 		assertTrue(processInstance != null);
 	}
 
