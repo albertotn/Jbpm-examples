@@ -88,7 +88,7 @@ Activities:
  * script task 2: print to system out "Received message Jbpm rocks! from process with id 1"
  * ends: end events
  
-Using signal it's possible to activate other flows and continue with execution
+Using signal it's possible to activate other flows and continue with execution and in particular comunicate with custom data structure, not only base classes
 
 # License
 
