@@ -75,6 +75,20 @@ Activities:
  
 Using signal it's possible to activate other flows and continue with execution
 
+### CustomDataMessage
+
+![Custom Data Message jbpm process](src/main/resources/example/customDataMessage/CustomDataMessage.png)
+
+Activities:
+
+ * start: a normal start, activate process when process start
+ * script task 1: set a process variable using a custom class: CustomMessage (with sender id and the message)
+ * throw event: use Signal to activate the second flow of activities and passing processVar1
+ * start event 3: activated after signal is throwned, copy processVar1 to processVar2 
+ * script task 2: print to system out "Received message Jbpm rocks! from process with id 1"
+ * ends: end events
+ 
+Using signal it's possible to activate other flows and continue with execution
 
 # License
 
