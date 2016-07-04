@@ -1,4 +1,4 @@
-package example.customDataMessage;
+package example.common;
 
 public class CustomMessage {
 

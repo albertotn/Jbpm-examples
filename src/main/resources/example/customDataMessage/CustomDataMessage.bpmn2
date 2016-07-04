@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- origin at X=0.0 Y=0.0 -->
 <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:java="http://www.java.com/javaTypes" xmlns:tns="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="Definition" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.2.3.Final-v20160226-1723-B97" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
-  <bpmn2:itemDefinition id="ItemDefinition_66" isCollection="false" structureRef="example.customDataMessage.CustomMessage"/>
+  <bpmn2:itemDefinition id="ItemDefinition_66" isCollection="false" structureRef="example.common.CustomMessage"/>
   <bpmn2:process id="customDataMessage.CustomDataMessage" tns:packageName="customDataMessage" name="CustomDataMessage" isExecutable="true" processType="Private">
     <bpmn2:extensionElements>
-      <tns:import name="example.customDataMessage.CustomMessage"/>
+      <tns:import name="example.common.CustomMessage"/>
     </bpmn2:extensionElements>
     <bpmn2:property id="processVar1" itemSubjectRef="ItemDefinition_66" name="processVar1"/>
     <bpmn2:property id="processVar2" itemSubjectRef="ItemDefinition_66" name="processVar2"/>
@@ -52,7 +52,7 @@ System.out.println(&quot;Received message &quot;+cm.getMessage()+ &quot; from pr
       </bpmn2:extensionElements>
       <bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
-      <bpmn2:dataInput id="DataInput_2" name="Signal_1_Input"/>
+      <bpmn2:dataInput id="DataInput_2" itemSubjectRef="ItemDefinition_66" name="Signal_1_Input"/>
       <bpmn2:dataInputAssociation id="DataInputAssociation_2">
         <bpmn2:sourceRef>processVar1</bpmn2:sourceRef>
         <bpmn2:targetRef>DataInput_2</bpmn2:targetRef>
@@ -112,49 +112,49 @@ kcontext.setVariable(&quot;processVar1&quot;, cm);</bpmn2:script>
     <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="customDataMessage.CustomDataMessage">
       <bpmndi:BPMNShape id="BPMNShape_StartEvent_4" bpmnElement="StartEvent_4">
         <dc:Bounds height="36.0" width="36.0" x="350.0" y="174.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_1">
           <dc:Bounds height="15.0" width="68.0" x="334.0" y="210.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_ScriptTask_3" bpmnElement="ScriptTask_2">
         <dc:Bounds height="50.0" width="110.0" x="513.0" y="167.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_2">
           <dc:Bounds height="15.0" width="71.0" x="532.0" y="184.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_EndEvent_3" bpmnElement="EndEvent_3">
         <dc:Bounds height="36.0" width="36.0" x="544.0" y="57.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_3">
           <dc:Bounds height="15.0" width="65.0" x="530.0" y="93.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_IntermediateThrowEvent_2" bpmnElement="IntermediateThrowEvent_2">
         <dc:Bounds height="36.0" width="36.0" x="407.0" y="57.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_4">
           <dc:Bounds height="30.0" width="80.0" x="385.0" y="93.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_EndEvent_4" bpmnElement="EndEvent_4">
         <dc:Bounds height="36.0" width="36.0" x="711.0" y="174.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_5">
           <dc:Bounds height="15.0" width="65.0" x="697.0" y="210.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_ScriptTask_4" bpmnElement="ScriptTask_3">
         <dc:Bounds height="50.0" width="110.0" x="197.0" y="50.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_6">
           <dc:Bounds height="15.0" width="71.0" x="216.0" y="67.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_StartEvent_6" bpmnElement="StartEvent_6">
         <dc:Bounds height="36.0" width="36.0" x="55.0" y="58.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_7">
           <dc:Bounds height="15.0" width="68.0" x="39.0" y="94.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_DataObject_1" bpmnElement="CustomMessage">
         <dc:Bounds height="50.0" width="36.0" x="162.0" y="224.0"/>
-        <bpmndi:BPMNLabel>
+        <bpmndi:BPMNLabel id="BPMNLabel_8">
           <dc:Bounds height="30.0" width="51.0" x="155.0" y="274.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
@@ -163,7 +163,7 @@ kcontext.setVariable(&quot;processVar1&quot;, cm);</bpmn2:script>
         <di:waypoint xsi:type="dc:Point" x="449.0" y="192.0"/>
         <di:waypoint xsi:type="dc:Point" x="449.0" y="192.0"/>
         <di:waypoint xsi:type="dc:Point" x="513.0" y="192.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_9"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_ScriptTask_3" targetElement="BPMNShape_EndEvent_4">
         <di:waypoint xsi:type="dc:Point" x="623.0" y="192.0"/>
@@ -171,38 +171,38 @@ kcontext.setVariable(&quot;processVar1&quot;, cm);</bpmn2:script>
         <di:waypoint xsi:type="dc:Point" x="666.0" y="192.0"/>
         <di:waypoint xsi:type="dc:Point" x="666.0" y="192.0"/>
         <di:waypoint xsi:type="dc:Point" x="711.0" y="192.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_10"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="SequenceFlow_3" sourceElement="BPMNShape_StartEvent_6" targetElement="BPMNShape_ScriptTask_4">
         <di:waypoint xsi:type="dc:Point" x="91.0" y="76.0"/>
         <di:waypoint xsi:type="dc:Point" x="144.0" y="76.0"/>
         <di:waypoint xsi:type="dc:Point" x="144.0" y="66.0"/>
         <di:waypoint xsi:type="dc:Point" x="197.0" y="66.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_11"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="SequenceFlow_4" sourceElement="BPMNShape_IntermediateThrowEvent_2" targetElement="BPMNShape_EndEvent_3">
         <di:waypoint xsi:type="dc:Point" x="443.0" y="75.0"/>
         <di:waypoint xsi:type="dc:Point" x="493.0" y="75.0"/>
         <di:waypoint xsi:type="dc:Point" x="544.0" y="75.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_12"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="SequenceFlow_5" sourceElement="BPMNShape_ScriptTask_4" targetElement="BPMNShape_IntermediateThrowEvent_2">
         <di:waypoint xsi:type="dc:Point" x="307.0" y="75.0"/>
         <di:waypoint xsi:type="dc:Point" x="357.0" y="75.0"/>
         <di:waypoint xsi:type="dc:Point" x="407.0" y="75.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_13"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_DataOutputAssociation_1" bpmnElement="DataOutputAssociation_3">
         <di:waypoint xsi:type="dc:Point" x="197.0" y="83.0"/>
         <di:waypoint xsi:type="dc:Point" x="174.0" y="83.0"/>
         <di:waypoint xsi:type="dc:Point" x="174.0" y="224.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_14"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_Association_1" bpmnElement="Association_1" sourceElement="BPMNShape_DataObject_1" targetElement="BPMNShape_StartEvent_4">
         <di:waypoint xsi:type="dc:Point" x="186.0" y="224.0"/>
         <di:waypoint xsi:type="dc:Point" x="186.0" y="192.0"/>
         <di:waypoint xsi:type="dc:Point" x="350.0" y="192.0"/>
-        <bpmndi:BPMNLabel/>
+        <bpmndi:BPMNLabel id="BPMNLabel_15"/>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
