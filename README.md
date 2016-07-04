@@ -109,6 +109,17 @@ In this example there are two different process definitions, as following:
 
 Using KieHelper is possible to create a KieBase with many different processes definitions and in load them into memory. This case is same as before, but two different process definitions 
 
+### Externl service
+
+![External Service jbpm process](src/main/resources/example/externalService/externalService.png)
+
+Activities:
+
+ * start: 
+ * RestWorkItemHandler: throught a script and using a custom class call GET method using REST on a page on internet
+ * end 
+
+Using a script class is easy to call an external service 
 
 # License
 
