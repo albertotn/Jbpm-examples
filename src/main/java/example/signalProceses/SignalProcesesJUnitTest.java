@@ -8,7 +8,7 @@ import org.kie.api.runtime.process.ProcessInstance;
 public class SignalProcesesJUnitTest extends JbpmJUnitBaseTestCase {
 
 	@Test
-	public void helloWorld() {
+	public void signalProcessTest() {
 		KieSession ksession = createRuntimeManager("example/signalProcess/signalProcess.bpmn2").getRuntimeEngine(null)
 				.getKieSession();
 

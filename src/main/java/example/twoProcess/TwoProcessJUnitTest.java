@@ -11,7 +11,7 @@ import org.kie.internal.utils.KieHelper;
 public class TwoProcessJUnitTest extends JbpmJUnitBaseTestCase {
 
 	@Test
-	public void helloWorld() {
+	public void twoProcessTest() {
 
 		KieHelper kieHelper = new KieHelper();
 

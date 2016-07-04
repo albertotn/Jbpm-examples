@@ -8,7 +8,7 @@ import org.kie.api.runtime.process.ProcessInstance;
 public class DataMessageJUnitTest extends JbpmJUnitBaseTestCase {
 
 	@Test
-	public void helloWorld() {
+	public void dataMessageTest() {
 		KieSession ksession = createRuntimeManager("example/dataMessage/dataMessage.bpmn2").getRuntimeEngine(null)
 				.getKieSession();
 

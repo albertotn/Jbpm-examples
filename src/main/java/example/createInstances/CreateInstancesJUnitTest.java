@@ -8,7 +8,7 @@ import org.kie.api.runtime.process.ProcessInstance;
 public class CreateInstancesJUnitTest extends JbpmJUnitBaseTestCase {
 
 	@Test
-	public void testImplicit() {
+	public void createInstanceTest() {
 		KieSession ksession = createRuntimeManager("example/createInstances/CreateInstances.bpmn2")
 				.getRuntimeEngine(null).getKieSession();
 		ProcessInstance processInstance = ksession.startProcess("example.createInstances.CreateInstances");

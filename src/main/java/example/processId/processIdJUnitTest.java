@@ -8,7 +8,7 @@ import org.kie.api.runtime.process.ProcessInstance;
 public class processIdJUnitTest extends JbpmJUnitBaseTestCase {
 
 	@Test
-	public void testImplicit() {
+	public void processIdTest() {
 		KieSession ksession = createRuntimeManager("example/processId/processId.bpmn2").getRuntimeEngine(null)
 				.getKieSession();
 		ProcessInstance processInstance = ksession.startProcess("example.processId.processId");
