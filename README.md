@@ -109,7 +109,7 @@ In this example there are two different process definitions, as following:
 
 Using KieHelper is possible to create a KieBase with many different processes definitions and in load them into memory. This case is same as before, but two different process definitions 
 
-### Externl service
+### External service
 
 ![External Service jbpm process](src/main/resources/example/externalService/externalService.png)
 
