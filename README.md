@@ -8,7 +8,7 @@ In order to use this project you must install:
 
 * java 8
 * maven 3.3.3 
-* a development Ide ( I'm using eclipse )
+* a development Ide ( Suggested: Eclipse, 4.5.2 )
 
 To compile and run test just run: *mvn test*
 
@@ -119,7 +119,20 @@ Activities:
  * RestWorkItemHandler: throught a script and using a custom class call GET method using REST on a page on internet
  * end 
 
-Using a script class is easy to call an external service 
+Using a script class is easy to call an external service
+
+### Extending using Custom WorkItemHandler
+
+![External Service jbpm process](src/main/resources/example/testWorkItem/testWorkItem.png)
+
+Activities:
+
+ * start: 
+ * TestWorkItem: a domain specific task, see [domain specific processes on Jbpm manual](http://docs.jboss.org/jbpm/release/6.4.0.Final/jbpm-docs/html/ch21.html)
+ * end 
+
+Using Jbpm capabilities to extend basic task, it's possible to create custom task with custom logic and reuse them.
+Be aware to specificy I/O Data Mappings into TestWorkItem task and see [TestWorkItem.java](src/main/java/examples/testWorkItem/TestWorkItem.java) custom task implementation  
 
 # License
 
