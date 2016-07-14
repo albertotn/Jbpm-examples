@@ -1,0 +1,10 @@
+[
+  [
+     "name" : "ExpandWorkItem",
+     "parameters" : [
+         "param1" : new String()
+      ],
+     "icon" : "icons/world.png",
+     "displayName" : "ExpandWorkItem"
+  ]
+]
