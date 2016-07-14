@@ -5,7 +5,7 @@ import org.kie.api.runtime.process.WorkItemHandler;
 import org.kie.api.runtime.process.WorkItemManager;
 
 /**
- * This is a sample file to launch a process.
+ * A simple WorkItemHandler implementation
  */
 public class TestWorkItem implements WorkItemHandler {
 
