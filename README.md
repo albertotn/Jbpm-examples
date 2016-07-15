@@ -115,7 +115,7 @@ Using KieHelper is possible to create a KieBase with many different processes de
 
 Activities:
 
- * start: 
+ * start
  * RestWorkItemHandler: throught a script and using a custom class call GET method using REST on a page on internet
  * end 
 
@@ -133,6 +133,26 @@ Activities:
 
 Using Jbpm capabilities to extend basic task, it's possible to create custom task with custom logic and reuse them.
 Be aware to specificy I/O Data Mappings into TestWorkItem task and see [TestWorkItem.java](src/main/java/examples/testWorkItem/TestWorkItem.java) custom task implementation  
+
+### Expand process at runtime 
+
+![expand process at runtime jbpm process](src/main/resources/example/expandProcess/expand.png)
+
+Activities:
+
+ * start
+ * ExpandWorkItem: a domain specific task, see [domain specific processes on Jbpm manual](http://docs.jboss.org/jbpm/release/6.4.0.Final/jbpm-docs/html/ch21.html)
+ * end
+
+![sub process jbpm process](src/main/resources/example/expandProcess/subProcess.png)
+
+Activities:
+
+ * start
+ * Script Task 1: prints hello world to system out
+ * end 
+ 
+This example shows how, using Jbpm WorkItemHandler, it's possible to "expand" first process calling second one. See [ExpandWorkItem.java](src/main/java/example/expand/ExpandWorkItem.java) for complete code.
 
 # License
 
